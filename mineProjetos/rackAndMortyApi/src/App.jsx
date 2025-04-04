@@ -1,7 +1,9 @@
 import Card from "./components/Card";
 import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [results, setResults] = useState([]);
