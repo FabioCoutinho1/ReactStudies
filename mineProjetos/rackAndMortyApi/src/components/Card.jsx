@@ -1,34 +1,13 @@
-import { useState, useEffect } from "react";
-
-const Card = () => {
-  const [results, setResults] = useState([]);
-  const [info, setInfo] = useState([]);
-
-  useEffect(() => {
-    const fetchApi = async () => {
-      try {
-        const res = await fetch("https://rickandmortyapi.com/api/character/");
-        const data = await res.json();
-        const { info, results } = data;
-        setInfo(info);
-        setResults(results);
-        console.log(data);
-      } catch (error) {
-        console.error("Erro ao buscar os dados:", error);
-      }
-    };
-    fetchApi();
-  }, []);
-
+const Card = ({ image, name, status, species, location }) => {
   return (
-    <div>
-      <h1>lista de personagens</h1>
-      {results.map((item) => (
-        <div key={item.id} className="bg-black">
-          <h2>{item.name}</h2>
-          <img src={item.image} alt={item.name} />
-        </div>
-      ))}
+    <div className="w-100 h-40 rounded-md bg-sky-900 text-amber-50 flex gap-6">
+      <img src={image} alt={name} />
+      <div className=" flex-auto flex flex-col  bg-sky-900">
+        <h2 className="text-xl font-black text-sky-200">{name}</h2>
+        <p>{status}</p>
+        <p>{species}</p>
+        <p>{location}</p>
+      </div>
     </div>
   );
 };
