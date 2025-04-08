@@ -3,6 +3,7 @@ import EventoProps from "./components/11_eventosProps/EventoProps";
 import Render from "./components/12-renderizacaoCondicional/render";
 import ButtonComponent from "./components/9_Eventos/ButtonComponent";
 import FormComponent from "./components/9_Eventos/FormComponent";
+import RenderListal from "./components/renderDeLista/RenderListal";
 
 function App() {
   const enviarEvento = () => {
@@ -19,6 +20,9 @@ function App() {
 
       <h2>Render Condicional</h2>
       <Render />
+
+      <h2>Render de listas</h2>
+      <RenderListal />
     </>
   );
 }
