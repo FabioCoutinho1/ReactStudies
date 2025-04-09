@@ -9,16 +9,15 @@ import MenuNav from "./components/MenuNav";
 
 function App() {
   return (
-      <Router>
-        
-         <MenuNav/>
+    <Router>
+      <MenuNav />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contatos" element={<Contatos />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sobre" element={<Sobre />} />
+        <Route path="/contatos" element={<Contatos />} />
+      </Routes>
+    </Router>
   );
 }
 
