@@ -5,8 +5,8 @@ const RenderListal = () => {
   return (
     <div>
       <ul>
-        {lista.map((element) => (
-            <li>{element}</li>
+        {lista.map((element, index) => (
+            <li key={index}>{element}</li>
         ))}
       </ul>
     </div>
