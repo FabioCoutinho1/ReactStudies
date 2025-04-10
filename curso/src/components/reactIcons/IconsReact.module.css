@@ -1,0 +1,12 @@
+.social_list {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.social_list svg {
+  font-size: 2rem;
+  color: red;
+}

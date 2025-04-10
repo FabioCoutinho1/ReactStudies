@@ -8,6 +8,7 @@ import FormComponent from "./components/9_Eventos/FormComponent";
 import RenderListal from "./components/renderDeLista/RenderListal";
 import StateLift from "./components/stateLift/StateLift";
 import Sudacao from "./components/stateLift/Sudacao";
+import IconsReact from "./components/reactIcons/IconsReact";
 
 function App() {
   const enviarEvento = () => {
@@ -33,6 +34,9 @@ function App() {
       <h2>State Lift</h2>
       <StateLift setNome={setNome} />
       <Sudacao nome={nome} />
+
+      <h2>React Icons</h2>
+      <IconsReact />
     </>
   );
 }
