@@ -4,16 +4,20 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Company from "./pages/Company";
 import NewProject from "./pages/NewProject";
+import NavBar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
     <Router>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Contact />} />
-        <Route path="/" element={<Company />} />
-        <Route path="/" element={<NewProject />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Company" element={<Company />} />
+        <Route path="/NewProject" element={<NewProject />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
