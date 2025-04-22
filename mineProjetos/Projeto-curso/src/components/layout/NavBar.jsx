@@ -8,17 +8,17 @@ const NavBar = () => {
       <Link to="/">
         <img src={logo} alt="cost" />{" "}
       </Link>
-      <ul className="flex gap-10">
-        <li className=" hover:text-amber-200">
+      <ul className="flex gap-10 ">
+        <li className=" hover:text-amber-200 transition duration-300 ease-in">
           <Link to="/">Home</Link>
         </li>
-        <li className=" hover:text-amber-200">
+        <li className=" hover:text-amber-200 transition duration-300 ease-in">
           <Link to="/Projects">Projetos</Link>
         </li>
-        <li className=" hover:text-amber-200">
+        <li className=" hover:text-amber-200 transition duration-300 ease-in">
           <Link to="/Company">Empresa</Link>
         </li>
-        <li className=" hover:text-amber-200">
+        <li className=" hover:text-amber-200 transition duration-300 ease-in">
           <Link to="/Contact">Contatos</Link>
         </li>
       </ul>
