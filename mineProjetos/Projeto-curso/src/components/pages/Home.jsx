@@ -6,7 +6,7 @@ import LinkButton from "../layout/LinkButton";
 const Home = () => {
   return (
     <section className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-5xl font-bold mb-6">
+      <h1 className="text-4xl font-bold mb-6">
         Bem Vindo ao
         <span className="text-amber-200 font-bold bg-black px-1">Costs</span>
       </h1>
