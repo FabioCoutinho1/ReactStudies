@@ -1,0 +1,41 @@
+{
+  "projects": [
+    {
+      "id": "4638",
+      "name": "Gssgsyayehgwshs",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "53c2",
+      "name": "1234",
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "c9b6",
+      "name": "correr",
+      "buget": "1000",
+      "cost": 0,
+      "services": []
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Infra"
+    },
+    {
+      "id": "2",
+      "name": "Desenvolvimento"
+    },
+    {
+      "id": "3",
+      "name": "batacha"
+    },
+    {
+      "id": "4",
+      "name": "Planejamento"
+    }
+  ]
+}

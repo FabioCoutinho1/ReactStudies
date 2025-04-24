@@ -1,27 +1,58 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 import Input from "../form/Input";
 import Select from "../form/Select";
 import SubmiBtn from "../form/SubmitBtn";
 
-const FormProject = ({btnText}) => {
+const FormProject = ({ handleSubmit, btnText, projectDate }) => {
+  const [categoris, setCategoris] = useState([]);
+  const [preject, setProject] = useState(projectDate || []);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const resposta = await fetch("http://localhost:3001/categories");
+        const dados = await resposta.json();
+        setCategoris(dados);
+      } catch (erro) {
+        console.error(erro);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  const submit = (e) => {
+    e.preventDefault();
+    handleSubmit(preject);
+  };
+
+  const handleChange = (e) => {
+    setProject({ ...preject, [e.target.name]: e.target.value });
+  };
+
   return (
-    <form>
+    <form onSubmit={submit}>
       <Input
         type="text"
         name="name"
         placeholder="Insira o nome do projeto"
         text="Nome do projeto"
+        handleOnChange={handleChange}
       />
       <Input
         type="number"
         name="buget"
         placeholder="Insira o orçamento do projeto"
         text="Orçamento do projeto"
+        handleOnChange={handleChange}
       />
 
-      <Select text="Selecione uam categoria" name="category-id" />
-      <SubmiBtn text={btnText}/>
+      <Select
+        text="Selecione uam categoria"
+        name="category-id"
+        options={categoris}
+      />
+      <SubmiBtn text={btnText} />
     </form>
   );
 };

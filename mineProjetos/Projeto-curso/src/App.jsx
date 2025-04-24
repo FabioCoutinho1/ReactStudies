@@ -13,7 +13,7 @@ import Container from "./components/layout/Container";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col justify-between">
         <NavBar />
         <Routes>
           <Route element={<Container />}>

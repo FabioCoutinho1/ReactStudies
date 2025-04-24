@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const Container = () => {
   return (
-    <main className="flex-1 p-4">
+    <main className=" p-4">
       <Outlet />
     </main>
   );
