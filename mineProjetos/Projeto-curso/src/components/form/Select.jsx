@@ -6,10 +6,18 @@ const Select = ({ name, value, text, handleOnChange, options }) => {
       <label className="font-bold mb-2" htmlFor={name}>
         {text}:
       </label>
-      <select className="bg-gray-200 w-full py-1 px-3" name={name} id={name}>
+      <select
+        className="bg-gray-200 w-full py-1 px-3"
+        name={name}
+        id={name}
+        value={value || ""}
+        onChange={handleOnChange}
+      >
         <option>Selecione uma opção</option>
-        {options.map((option)=>(
-          <option key={option.id} value={option.id}>{option.name}</option>
+        {options.map((option) => (
+          <option key={option.id} value={option.id}>
+            {option.name}
+          </option>
         ))}
       </select>
     </div>

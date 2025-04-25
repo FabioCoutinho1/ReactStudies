@@ -6,7 +6,7 @@ import SubmiBtn from "../form/SubmitBtn";
 
 const FormProject = ({ handleSubmit, btnText, projectDate }) => {
   const [categoris, setCategoris] = useState([]);
-  const [preject, setProject] = useState(projectDate || []);
+  const [project, setProject] = useState(projectDate || []);
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -23,11 +23,21 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
 
   const submit = (e) => {
     e.preventDefault();
-    handleSubmit(preject);
+    handleSubmit(project);
   };
 
   const handleChange = (e) => {
-    setProject({ ...preject, [e.target.name]: e.target.value });
+    setProject({ ...project, [e.target.name]: e.target.value });
+  };
+
+  const handleCategory = (e) => {
+    setProject({
+      ...project,
+      category: {
+        id: e.target.value,
+        name: e.target.options[e.target.selectedIndex].text,
+      },
+    });
   };
 
   return (
@@ -37,6 +47,7 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
         name="name"
         placeholder="Insira o nome do projeto"
         text="Nome do projeto"
+        value={project.name ? project.name : ""}
         handleOnChange={handleChange}
       />
       <Input
@@ -44,6 +55,7 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
         name="buget"
         placeholder="Insira o orçamento do projeto"
         text="Orçamento do projeto"
+        value={project.buget ? project.buget : ""}
         handleOnChange={handleChange}
       />
 
@@ -51,6 +63,8 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
         text="Selecione uam categoria"
         name="category-id"
         options={categoris}
+        value={project.category ? project.category.id : ""}
+        handleOnChange={handleCategory}
       />
       <SubmiBtn text={btnText} />
     </form>
