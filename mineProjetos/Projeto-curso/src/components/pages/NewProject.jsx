@@ -18,7 +18,9 @@ const NewProject = () => {
       const dados = await resposta.json();
       console.log(dados);
 
-      navigate("/projects", { mensagem: "Projeto criado como suceso" });
+      navigate("/projects", {
+        state: { mensagem: "Projeto criado como suceso" },
+      });
     } catch (error) {
       console.error(error);
     }
