@@ -16,7 +16,15 @@ const Mensage = ({ type, text }) => {
 
     return () => clearInterval(time);
   }, [text]);
-  return <>{visible && <div>{text}</div>}</>;
+  return (
+    <>
+      {visible && (
+        <div className="bg-emerald-100 text-emerald-600 p-2 text-center mb-4">
+          {text}
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Mensage;
