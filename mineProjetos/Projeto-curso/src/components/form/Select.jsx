@@ -1,6 +1,6 @@
 import React from "react";
 
-const Select = ({ name, value, text, handleOnChange, options }) => {
+const Select = ({ name, value, text, handleOnChange, options, required }) => {
   return (
     <div className="flex flex-col mb-4">
       <label className="font-bold mb-2" htmlFor={name}>
@@ -12,8 +12,9 @@ const Select = ({ name, value, text, handleOnChange, options }) => {
         id={name}
         value={value || ""}
         onChange={handleOnChange}
+        required={required}
       >
-        <option>Selecione uma opção</option>
+        <option value={""}>Selecione uma opção</option>
         {options.map((option) => (
           <option key={option.id} value={option.id}>
             {option.name}

@@ -49,6 +49,7 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
         text="Nome do projeto"
         value={project.name ? project.name : ""}
         handleOnChange={handleChange}
+        required={"required"}
       />
       <Input
         type="number"
@@ -57,6 +58,7 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
         text="Orçamento do projeto"
         value={project.buget ? project.buget : ""}
         handleOnChange={handleChange}
+        required={"required"}
       />
 
       <Select
@@ -65,6 +67,7 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
         options={categoris}
         value={project.category ? project.category.id : ""}
         handleOnChange={handleCategory}
+        required={"required"}
       />
       <SubmiBtn text={btnText} />
     </form>

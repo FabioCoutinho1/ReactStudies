@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const CardProjetc = ({ name, buget, categry }) => {
+const CardProjetc = ({ id, name, buget, categry, hendleDelete }) => {
   const buttonStyle =
     "bg-amber-200 px-4 py-1 w-25 flex items-center justify-center cursor-pointer duration-300";
 
@@ -9,6 +9,11 @@ const CardProjetc = ({ name, buget, categry }) => {
     Desenvolvimento: "bg-emerald-200",
     Design: "bg-purple-200",
     Planejamento: "bg-red-200",
+  };
+
+  const remove = (e) => {
+    e.preventDefault();
+    hendleDelete(id);
   };
   return (
     <div className="border p-4">
@@ -27,10 +32,18 @@ const CardProjetc = ({ name, buget, categry }) => {
       </p>
 
       <div className="flex justify-between gap-6">
-        <button className={`${buttonStyle} bg-red-300 hover:bg-red-400`}>
+        <button
+          className={`${buttonStyle} bg-red-300 hover:bg-red-400`}
+          onClick={remove}
+        >
           Remover
         </button>
-        <button className={`${buttonStyle} hover:bg-amber-400`}>Editar</button>
+        <Link
+          className={`${buttonStyle} hover:bg-amber-400`}
+          to={`/Project/${id}`}
+        >
+          Editar
+        </Link>
       </div>
     </div>
   );
