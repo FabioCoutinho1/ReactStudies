@@ -26,9 +26,15 @@ const Project = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>{project.name}</h1>
-    </div>
+    <>
+      <div className="flex">
+        <h1 className="text-4xl font-bold bg-black text-amber-300 p-4">
+          {project.name}
+        </h1>
+
+        <button>Editar Projeto</button>
+      </div>
+    </>
   );
 };
 
