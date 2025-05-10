@@ -4,7 +4,7 @@ import { useState, useEffect, use } from "react";
 import Mensage from "../layout/Mensage";
 import LinkButton from "../layout/LinkButton";
 import CardProjetc from "../project/CardProjetc";
-import Load from "../layout/load";
+import Load from "../layout/Load";
 
 const Projects = () => {
   const location = useLocation();

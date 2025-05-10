@@ -1,20 +1,9 @@
 {
   "projects": [
     {
-      "id": "3503",
-      "name": "teste 3",
-      "buget": "8000",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "371e",
-      "name": "teste 2",
-      "buget": "6000",
+      "id": "1c36",
+      "name": "teste ",
+      "buget": "1500",
       "category": {
         "id": "3",
         "name": "Design"
