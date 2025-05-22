@@ -24,7 +24,6 @@ const Projects = () => {
           },
         });
         const data = await resposta.json();
-        console.log(data);
         setProjetcs(data);
         setLoaing(true);
       } catch (error) {

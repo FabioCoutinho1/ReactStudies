@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
+import {parse, v4 as uuidv4} from 'uuid'
 import { useState, useEffect } from "react";
 
 import Load from "../layout/Load";
 import FormProject from "../project/FormProject";
 import Mensage from "../layout/Mensage";
+import ServiceForm from "../service/ServiceForm";
 
 const Project = () => {
   const { id } = useParams();
-  const [project1, setProject] = useState([]);
+  const [project1, setProject1] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(true);
   const [showServiceForm, setShowServiceForm] = useState(true);
   const [msg, setMsg] = useState();
@@ -23,8 +25,7 @@ const Project = () => {
           },
         });
         const data = await resposta.json();
-        setProject(data);
-        console.log(data);
+        setProject1(data);
       } catch (erro) {
         console.error(erro);
       }
@@ -61,13 +62,20 @@ const Project = () => {
         }
       );
       const data = await resposta.json();
-      setProject(data);
+      setProject1(data);
       setMsg("Projeto editado com sucesso");
       setShowProjectForm(true);
     } catch (erro) {
       console.log(erro);
     }
   };
+
+  const puthService = (project) => {
+    const lastSevice = project.services[project.services.length - 1]
+    console.log(lastSevice)
+    setShowServiceForm(true)
+  };
+
   return (
     <>
       {project1.name ? (
@@ -123,7 +131,11 @@ const Project = () => {
 
             {!showServiceForm && (
               <div className="mb-8">
-                <p>formulario</p>
+                <ServiceForm
+                  handleSubmit={puthService}
+                  btnText={"Enviar"}
+                  projectData={project1}
+                />
               </div>
             )}
 
