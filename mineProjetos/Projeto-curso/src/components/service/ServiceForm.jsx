@@ -27,7 +27,7 @@ const ServiceForm = ({ projectData, btnText, handleSubmit }) => {
 
       <Input
         type={"number"}
-        name={"budgetValue"}
+        name={"cost"}
         text={"Custo do serviço"}
         placeholder={"Insira o valor total"}
         handleOnChange={handleChange}

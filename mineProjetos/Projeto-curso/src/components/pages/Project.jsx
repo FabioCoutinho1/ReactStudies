@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {parse, v4 as uuidv4} from 'uuid'
+import { parse, v4 as uuidv4 } from "uuid";
 import { useState, useEffect } from "react";
 
 import Load from "../layout/Load";
@@ -71,9 +71,16 @@ const Project = () => {
   };
 
   const puthService = (project) => {
-    const lastSevice = project.services[project.services.length - 1]
-    console.log(lastSevice)
-    setShowServiceForm(true)
+    const lastSevice = project.services[project.services.length - 1];
+    console.log(lastSevice);
+    lastSevice.id = uuidv4();
+
+    const lastServiceCost = lastSevice.cost
+
+    const newConst =  parseInt(project.cost) + parseInt(lastServiceCost)
+    setShowServiceForm(true);
+
+    
   };
 
   return (
