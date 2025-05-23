@@ -3,13 +3,38 @@
     {
       "id": "71f2",
       "name": "teste",
-      "buget": "15000",
+      "buget": "1500",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 74,
+      "services": [
+        {
+          "name": "22222222",
+          "cost": "22",
+          "description": "2",
+          "id": "c31e01fe-8aa5-4b17-99da-7d4de8a63623"
+        },
+        {
+          "name": "serviso teste",
+          "cost": "50",
+          "description": "faz isso",
+          "id": "7faab2a6-24a0-45c7-905c-ad44a5c4ffb1"
+        },
+        {
+          "name": "serviso teste",
+          "cost": "1",
+          "description": "a",
+          "id": "110d48d1-eb9a-4bef-9b70-bcd87378b03f"
+        },
+        {
+          "name": "serviso teste 2",
+          "cost": "1",
+          "description": "AA",
+          "id": "4d429f15-4ecd-43dd-8e11-2bbfa065a2d2"
+        }
+      ]
     }
   ],
   "categories": [

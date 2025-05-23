@@ -44,7 +44,9 @@ const Project = () => {
 
   const editSubmit = async (project) => {
     setMsg();
+    setTypeMsg();
 
+    console.log(msg)
     try {
       if (project.buget < project.cost) {
         setMsg("O orçamento não pode ser menor que o custo do projeto");
@@ -70,17 +72,48 @@ const Project = () => {
     }
   };
 
-  const puthService = (project) => {
-    const lastSevice = project.services[project.services.length - 1];
-    console.log(lastSevice);
-    lastSevice.id = uuidv4();
+  const puthService = async (project) => {
+    setMsg();
+    setTypeMsg();
 
-    const lastServiceCost = lastSevice.cost
+    try {
+      const lastSevice = project.services[project.services.length - 1];
+      console.log(lastSevice);
+      lastSevice.id = uuidv4();
 
-    const newConst =  parseInt(project.cost) + parseInt(lastServiceCost)
-    setShowServiceForm(true);
+      const lastServiceCost = lastSevice.cost;
 
-    
+      const newConst = parseFloat(project.cost) + parseFloat(lastServiceCost);
+
+      if (newConst > project.buget) {
+        setMsg("Custo do serviço ultrapassa o valor do orçamento");
+        setTypeMsg("error");
+        project.services.pop();
+        console.log(project);
+        return false;
+      }
+
+      project.cost = parseFloat(newConst);
+      console.log(project);
+
+      const resposta = await fetch(
+        `http://localhost:3001/projects/${project.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(project),
+        }
+      );
+
+      const data = await resposta.json();
+      console.log(data);
+      setMsg("Serviço adicionado com sucesso");
+      setShowServiceForm(true);
+    } catch (erro) {
+      console.log(err3);
+    }
   };
 
   return (
