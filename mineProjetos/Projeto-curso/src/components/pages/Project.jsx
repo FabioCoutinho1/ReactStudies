@@ -6,10 +6,12 @@ import Load from "../layout/Load";
 import FormProject from "../project/FormProject";
 import Mensage from "../layout/Mensage";
 import ServiceForm from "../service/ServiceForm";
+import ServiceCard from "../service/ServiceCard";
 
 const Project = () => {
   const { id } = useParams();
   const [project1, setProject1] = useState([]);
+  const [services, setServices] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(true);
   const [showServiceForm, setShowServiceForm] = useState(true);
   const [msg, setMsg] = useState();
@@ -26,6 +28,7 @@ const Project = () => {
         });
         const data = await resposta.json();
         setProject1(data);
+        setServices(data.services);
       } catch (erro) {
         console.error(erro);
       }
@@ -38,19 +41,26 @@ const Project = () => {
     setShowProjectForm(!showProjectForm);
   };
 
+  const removeMsg = () => {
+    setTimeout(() => {
+      setMsg("");
+      setTypeMsg("");
+    }, 3000);
+  };
+
   const toggeServiceForm = () => {
     setShowServiceForm(!showServiceForm);
   };
 
   const editSubmit = async (project) => {
-    setMsg();
-    setTypeMsg();
+    setMsg("");
 
-    console.log(msg)
     try {
       if (project.buget < project.cost) {
         setMsg("O orçamento não pode ser menor que o custo do projeto");
         setTypeMsg("error");
+
+        removeMsg();
         return false;
       }
       const resposta = await fetch(
@@ -73,12 +83,11 @@ const Project = () => {
   };
 
   const puthService = async (project) => {
-    setMsg();
-    setTypeMsg();
+    setMsg("");
+    setTypeMsg("");
 
     try {
       const lastSevice = project.services[project.services.length - 1];
-      console.log(lastSevice);
       lastSevice.id = uuidv4();
 
       const lastServiceCost = lastSevice.cost;
@@ -89,7 +98,7 @@ const Project = () => {
         setMsg("Custo do serviço ultrapassa o valor do orçamento");
         setTypeMsg("error");
         project.services.pop();
-        console.log(project);
+        removeMsg();
         return false;
       }
 
@@ -116,6 +125,26 @@ const Project = () => {
     }
   };
 
+  const removeService = async (id, cost)=>{
+    const novoSevico = services.filter((element)=> element.id !== id)
+    const newCost = parseFloat(project1.cost) - parseFloat(cost)
+  
+    try{
+      const resposta =  await fetch(`http://localhost:3001/projects/${project1.id}`,{
+        method: "PATCH",
+        headers:{
+          "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify({...project1, cost:newCost, services: novoSevico})
+      })
+      const data = await resposta.json()
+      console.log(data)
+      setProject1(data)
+      setServices(data.services)
+    }catch(erro){
+      console.log(erro)
+    }
+  }
   return (
     <>
       {project1.name ? (
@@ -180,8 +209,21 @@ const Project = () => {
             )}
 
             <div>
-              <h2 className="font-bold text-3xl">Serviço:</h2>
-              <p>area de serviços</p>
+              <h2 className="font-bold text-3xl mb-8">Serviços:</h2>
+              <div className="overflow-y-scroll max-h-[394px] flex justify-center gap-10 flex-wrap items-center mb-8">
+                {services.length > 0 &&
+                  services.map((element) => (
+                    <ServiceCard
+                      key={element.id}
+                      id={element.id}
+                      name={element.name}
+                      cost={element.cost}
+                      description={element.description}
+                      handleRemove={removeService}
+                    />
+                  ))}
+                {services.length === 0 && <p>Não a serviços ainda</p>}
+              </div>
             </div>
           </div>
         </div>
