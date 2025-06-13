@@ -8,8 +8,27 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 0,
-      "services": []
+      "cost": 3,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "1",
+          "description": "isso aqui",
+          "id": "fc26ccec-bbc8-430c-9407-91297e068575"
+        },
+        {
+          "name": "teste 1",
+          "cost": "1",
+          "description": "isso",
+          "id": "a1225317-4d4c-4aca-a5cc-8b1d62515895"
+        },
+        {
+          "name": "teste 2",
+          "cost": "1",
+          "description": "isso",
+          "id": "84a6353d-cb2c-48b2-992f-b6fbe92d13d4"
+        }
+      ]
     }
   ],
   "categories": [
