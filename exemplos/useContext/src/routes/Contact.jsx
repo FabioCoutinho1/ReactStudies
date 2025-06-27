@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemaContaxt";
 
-const Contact = () => {
+const Contact = () => { v
   const { theme } = useContext(ThemeContext);
   return (
     <div>

@@ -24,6 +24,7 @@ const FormProject = ({ handleSubmit, btnText, projectDate }) => {
   const submit = (e) => {
     e.preventDefault();
     handleSubmit(project);
+    console.log(project);
   };
 
   const handleChange = (e) => {
