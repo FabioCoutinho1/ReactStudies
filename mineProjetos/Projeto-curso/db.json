@@ -29,6 +29,24 @@
           "id": "84a6353d-cb2c-48b2-992f-b6fbe92d13d4"
         }
       ]
+    },
+    {
+      "id": "819e",
+      "name": "fazer o gestor de projetos",
+      "buget": "1500",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 500,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "500",
+          "description": "comprar o servidor ",
+          "id": "975039c2-353a-4543-8faa-4e0709b00f49"
+        }
+      ]
     }
   ],
   "categories": [
